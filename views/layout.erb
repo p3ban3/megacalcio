@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title>Fanta Manager</title>
+</head>
+<body>
+  <h1><a href="/">Fanta Manager</a></h1>
+  <nav>
+    <a href="/login">Login</a>
+    <form action="/logout" method="post"><input type="submit" value="Logout"></form>
+    <% if session[:user] %>
+      <a href="/squadre/new">Crea squadra</a>  
+    <% end %>
+  </nav>
+  <%= yield %>
+</body>
+</html>
