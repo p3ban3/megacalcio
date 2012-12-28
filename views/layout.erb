@@ -1,16 +1,146 @@
+
 <html>
 <head>
-  <title>Fanta Manager</title>
+ <link rel="stylesheet" type="text/css" href="/style.css" media="screen"/>
+
 </head>
-<body>
-  <h1><a href="/">Fanta Manager</a></h1>
+<div class="container">
+
+  <div class="top">
+    <a href="/"><span>Megacalcio        Fantamanager</span></a>
+  </div>
+  
+  <div class="header">
+
+  </div>
   <nav>
-    <a href="/login">Login</a>
-    <form action="/logout" method="post"><input type="submit" value="Logout"></form>
-    <% if session[:user] %>
-      <a href="/squadre/new">Crea squadra</a>  
-    <% end %>
+            <a href="/login">Login</a>
+            <form action="/logout" method="post">
+            <input type="submit" value="Logout">
+            </form>
+            <% if session[:user] %>
+            <a href="/squadre/new">Crea squadra</a>  
+            <% end %><%= yield %>
   </nav>
-  <%= yield %>
+  
+  <div class="main">
+
+    <div class="item">
+
+      <div class="date">
+        <div>OCT</div>
+        <span>01</span>
+      </div>
+              <div class="content">
+
+        <h1>Aste bollenti ...</h1>
+
+        <div class="body">
+
+          <p>
+             Bergonzoni:
+              Onore alla bellezza. Lei ha mai partecipato a qualche concorso?
+             Canà: 
+              Sì, alle Poste e Telecomunicazioni, ma non l'hanno presa perché non era raccomandata.
+             
+          </p>
+
+          <p>
+             Ceretti:
+              E... che tattica adopererete? Adotterete anche voi la zona?
+             Canà:
+              No, io adotto un altro tipo di tattica: la bizona.
+             Ceretti:
+              E che cosa sarebbe la bizona, è forse la zona per tornare in serie B?
+             Canà:
+              La B non significa bi... bi-zona sta per bis-zona cioè due volte zona, come se io a lei dicessi bistrò, che non significa bistrot francese, ma due volte stronzo. Arrivederci.
+             Ceretti:
+              Africano e maleducato...
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+    
+    <div class="item">
+
+      <div class="date">
+        <div>SEP</div>
+        <span>30</span>
+      </div>
+
+      <div class="content">
+
+        <h1>Arbitri ...cornuti!</h1>
+
+        <div class="body">
+
+          <p>
+          </p>
+
+          <ul>
+            <li>Tristique</li>
+            <li>Aenean</li>
+            <li>Pretium</li>
+          </ul>
+
+          <p>
+          </p>
+        
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="navigation">
+
+    <h1>Campionato</h1>
+    <ul>
+      <li><a href="/classificas">Classifica</a></li>
+      <li><a href="/">Allenamenti</a></li>
+      <li><a href="/">Calendario</a></li>
+      <li><a href="/">Forma</a></li>
+    </ul>
+
+    <h1>Gestione Squadra</h1>
+    <ul>
+      <li><a href="/">Stadio</a></li>
+      <li><a href="/">Stipendi</a></li>
+      <li><a href="/">Sponsor</a></li>
+      <li><a href="/">Tifosi</a></li>
+    </ul>
+
+    <h1>Impostazioni</h1>
+    <ul>
+      <li><a href="/">Stampa</a></li>
+      <li><a href="/">Aste</a></li>
+      <li><a href="/">Account</a></li>
+      <li><a href="/">Donate</a></li>
+    </ul>
+
+  </div>
+  
+  <div class="clearer"><span></span></div>
+
+  <div class="footer">
+  
+    <span class="left">
+
+    <div class="clearer"><span></span></div>
+
+  </div>
+
+  
+</div>
+  
+  
+  
+
 </body>
 </html>

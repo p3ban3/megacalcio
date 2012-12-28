@@ -59,6 +59,10 @@ get "/asta" do
   "..."
 end
 
+get "/classifica" do
+   erb :classifica
+end
+
 
 
 =begin
