@@ -1,20 +1,14 @@
-
 require "sinatra"
-require_relative "giocatore"
-require_relative "squadra"
-require_relative "dado"
-require_relative "db"
+require  './config'
 
 # squadre = DB.carica "squadre"
 
 enable :sessions
 
 
-SQUADRE = DB.carica "squadre"
-
-def salva_squadra(squadra)
-  SQUADRE.push squadra
-  DB.salva :squadre, SQUADRE
+get "/migrate" do
+  DataMapper.auto_migrate!
+  "db pronto"
 end
 
 get "/" do
@@ -43,16 +37,15 @@ get "/squadre/new" do
   erb :squadre_new
 end
 
-get "/squadre/*" do |nome|
-  @nome = nome
-  # carica squadra (nome)
+get "/squadre/*" do |id|
+  @squadra = Squadra.get id
   erb :squadra
 end
 
 post '/squadre' do
-  squadra = Squadra.new params[:nome]
-  salva_squadra squadra
-  redirect "/squadre/#{squadra.nome}"
+  squadra = Squadra.new nome: params[:nome]
+  squadra.save
+  redirect "/squadre/#{squadra.id}"
 end
 
 get "/asta" do

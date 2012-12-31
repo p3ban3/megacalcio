@@ -1,19 +1,18 @@
 require_relative "giocatore"
 
 class Squadra 
-  
-  def initialize(nome)
-    squadra = { nome: nome, giocatori: gen_giocatori  }
-    squadra[:stats] = punteggio_squadra(squadra)
-    @squadra = squadra
-  end
+  include DataMapper::Resource
+ 
+  property :id,       Serial
+  property :nome,     String
+  property :stats,    Integer
+  property :giocatori,    Json
 
-  def nome
-    @squadra[:nome]
-  end
+  #attr_reader :giocatori
 
-  def hash
-    @squadra
+  before :create do
+    self.giocatori = self.gen_giocatori
+    self.stats = self.punteggio_squadra
   end
 
   def gen_giocatori
@@ -24,9 +23,9 @@ class Squadra
     giocatori
   end
 
-  def punteggio_squadra(squadra)
+  def punteggio_squadra
     punteggio = 0
-    for giocatore in squadra[:giocatori]
+    for giocatore in giocatori
       punteggio = punteggio + giocatore[:stats]
     end
     punteggio / 11

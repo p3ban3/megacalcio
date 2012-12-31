@@ -1,4 +1,4 @@
-<h1>La tua squadra: <%= @nome %></h1>
+<h1>La tua squadra: <%= @squadra.nome %></h1>
 
 Punteggio...
 
@@ -6,5 +6,7 @@ Ultime partite...
 
 Giocatori...
 
-
+<% for giocatore in @squadra.giocatori %>
+  <p><%= giocatore["nome"] %> - <%= giocatore["stats"] %></p>
+<% end %>
 
