@@ -1,12 +1,21 @@
-<h1>La tua squadra: <%= @squadra.nome %></h1>
+<section id="tables">
+  <div class="page-header">
+    <h1>La tua squadra: <%= @squadra.nome %></h1>
+  </div>
+  
+  <table class="table table-bordered table-striped table-hover">
+    <tr>
+      <th>Nome</th>
+      <th>Stats</th>
+      <th>Squadra</th>
+    </tr>
+    <% for giocatore in @squadra.giocatori %>
+      <tr>
+        <td><%= giocatore["nome"] %></td>
+        <td><%= giocatore["stats"] %></td>
+        <td><%= @squadra.nome %></td>
+      </tr>
+    <% end %> 
+  </table>
 
-Punteggio...
-
-Ultime partite...
-
-Giocatori...
-
-<% for giocatore in @squadra.giocatori %>
-  <p><%= giocatore["nome"] %> - <%= giocatore["stats"] %></p>
-<% end %>
-
+</section>

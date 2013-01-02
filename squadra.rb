@@ -7,7 +7,7 @@ class Squadra
   property :nome,     String
   property :stats,    Integer
   property :giocatori,    Json
-
+  property :user_id, Integer
   #attr_reader :giocatori
 
   before :create do

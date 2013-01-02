@@ -1,146 +1,76 @@
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>Fantamanager</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Batman meets... Aquaman?">
+      <meta name="author" content="Thomas Park">
 
-<html>
-<head>
- <link rel="stylesheet" type="text/css" href="/style.css" media="screen"/>
+      <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
 
-</head>
-<div class="container">
+      <link href="/css/bootstrap.css" rel="stylesheet">
+      <!-- <link href="/css/bootstrap-responsive.min.css" rel="stylesheet"> -->
+      <link href="/css/bootswatch.css" rel="stylesheet">
 
-  <div class="top">
-    <a href="/"><span>Megacalcio        Fantamanager</span></a>
-  </div>
-  
-  <div class="header">
 
-  </div>
-  <nav>
-            <a href="/login">Login</a>
-            <form action="/logout" method="post">
-            <input type="submit" value="Logout">
-            </form>
-            <% if session[:user] %>
-            <a href="/squadre/new">Crea squadra</a>  
-            <% end %><%= yield %>
-  </nav>
-  
-  <div class="main">
 
-    <div class="item">
+    </head>
 
-      <div class="date">
-        <div>OCT</div>
-        <span>01</span>
-      </div>
-              <div class="content">
+    <body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
 
-        <h1>Aste bollenti ...</h1>
 
-        <div class="body">
+    <!-- Navbar
+      ================================================== -->
+   <div class="navbar navbar-fixed-top">
+     <div class="navbar-inner">
+       <div class="container">                                           
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </a>
+         <a class="brand" href="/">Fantamanager</a>
+         <div class="nav-collapse" id="main-menu">
+          <ul class="nav" id="main-menu-left">
+            <% if logged? %>
+              <% if current_user.squadra %>
+                <li><a href="/squadre/<%= current_user.squadra.id %>">La tua squadra</a></li> 
+              <% else %>
+                <li><a href="/squadre/new">Crea squadra</a></li>  
+              <% end %>
+              <li><form action="/logout" method="post">
+                <input class="btn btn-primary btn-large" type="submit" value="Logout">
+              </form></li>
+            <% else %>
+              <li><a href="/login">Login</a></li> 
+              <li><a href="/users/new">Registrati</a></li> 
+            <% end %> 
 
-          <p>
-             Bergonzoni:
-              Onore alla bellezza. Lei ha mai partecipato a qualche concorso?
-             Canà: 
-              Sì, alle Poste e Telecomunicazioni, ma non l'hanno presa perché non era raccomandata.
-             
-          </p>
-
-          <p>
-             Ceretti:
-              E... che tattica adopererete? Adotterete anche voi la zona?
-             Canà:
-              No, io adotto un altro tipo di tattica: la bizona.
-             Ceretti:
-              E che cosa sarebbe la bizona, è forse la zona per tornare in serie B?
-             Canà:
-              La B non significa bi... bi-zona sta per bis-zona cioè due volte zona, come se io a lei dicessi bistrò, che non significa bistrot francese, ma due volte stronzo. Arrivederci.
-             Ceretti:
-              Africano e maleducato...
-
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-    
-    <div class="item">
-
-      <div class="date">
-        <div>SEP</div>
-        <span>30</span>
-      </div>
-
-      <div class="content">
-
-        <h1>Arbitri ...cornuti!</h1>
-
-        <div class="body">
-
-          <p>
-          </p>
-
-          <ul>
-            <li>Tristique</li>
-            <li>Aenean</li>
-            <li>Pretium</li>
           </ul>
+         </div>
+       </div>
+     </div>
+   </div>
+  <div class="container">
+    <br><br><br>
+    <%= yield %>
+  </div><!-- /container -->
 
-          <p>
-          </p>
-        
-        </div>
 
-      </div>
 
-    </div>
+      <!-- Le javascript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="/js/jquery.js"></script>
+      <script src="/js/bootstrap.js"></script>
 
-  </div>
 
-  <div class="navigation">
+    </body>
+  </html>
 
-    <h1>Campionato</h1>
-    <ul>
-      <li><a href="/classificas">Classifica</a></li>
-      <li><a href="/">Allenamenti</a></li>
-      <li><a href="/">Calendario</a></li>
-      <li><a href="/">Forma</a></li>
-    </ul>
 
-    <h1>Gestione Squadra</h1>
-    <ul>
-      <li><a href="/">Stadio</a></li>
-      <li><a href="/">Stipendi</a></li>
-      <li><a href="/">Sponsor</a></li>
-      <li><a href="/">Tifosi</a></li>
-    </ul>
 
-    <h1>Impostazioni</h1>
-    <ul>
-      <li><a href="/">Stampa</a></li>
-      <li><a href="/">Aste</a></li>
-      <li><a href="/">Account</a></li>
-      <li><a href="/">Donate</a></li>
-    </ul>
-
-  </div>
-  
-  <div class="clearer"><span></span></div>
-
-  <div class="footer">
-  
-    <span class="left">
-
-    <div class="clearer"><span></span></div>
-
-  </div>
-
-  
-</div>
-  
-  
-  
-
-</body>
-</html>
+   

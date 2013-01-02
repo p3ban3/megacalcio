@@ -1,0 +1,22 @@
+<body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
+   <div class="container">
+    <div class="page-header">
+      <div class="row">
+
+    <div class="span4">
+      <h1>Benvenuto!</h1>
+
+        <p>Ciao ... <%= session[:user] %></p>
+        <p class="lead"><a href="login" class="btn-custom btn-primary btn-large">Learn more &raquo;</a></p>
+<% if session[:user] %>
+            <a href="/squadre/new">Crea squadra</a>  
+            <% end %>
+    </div>
+</div>
+    </div>
+
+
+        
+        
+
+      
